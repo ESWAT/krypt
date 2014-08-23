@@ -1,63 +1,28 @@
-# CEKTOP
+# Krypt (Ludum Dare 30)
 
-CEKTOP is a static site generator for GitHub Pages. It helps you bootstrap your website or app using a Grunt & Node.js stack that’s very configurable. So you’re not stuck using the default setup of Jekyll or plain jane HTML/CSS/JavaScript.
+Krypt is a distributed realm control system designed to handle everything from small to very large conquests with speed and efficency. Krypt was initially designed and developed by the Elder Gods to assist the victors of Mortal Kombat tournaments with merging with defeated realms.
 
-Out of the box CEKTOP uses the following:
+However Shao Kahn, the Emperor of Outworld, has gained access to Krypt and the `mk.krypt` repository, giving him full control of all the realms. He now plans to use Krypt to merge his realm with Earthrealm, the most powerful realm in the comos, without participating in Mortal Kombat.
 
-- [Jade](http://jade-lang.com/) with [Markdown filter](http://jade-lang.com/reference/#filters) support
-- [Stylus](http://learnboost.github.io/stylus/) with [Nib](http://visionmedia.github.io/nib/) support
-- [CoffeeScript](http://coffeescript.org/)
-- [CoffeeLint](http://www.coffeelint.org/)
-- [UglifyJS](http://marijnhaverbeke.nl//uglifyjs)
-- [grunt-contib-imagemin](https://github.com/gruntjs/grunt-contrib-imagemin)
-- [grunt-gh-pages](https://github.com/tschaub/grunt-gh-pages)
-
-If there’s a Grunt plugin for it you can use it; remove and extend things as needed. Once you’re satisfied with your work you can publish it with a single Grunt task.
-
-## Start
-
-You will need [Node.js](http://nodejs.org/download/) installed to use CEKTOP.
-
-- Download the [latest release](https://github.com/ESWAT/CEKTOP/releases) or clone the repo `git clone https://github.com/ESWAT/CEKTOP.git`
-- `npm install -g grunt-cli` if you do not have the Grunt CLI installed
-- `npm install` for remaining dependencies
-- `grunt` starts a server in development mode while `grunt preview` starts it in preview mode, which optimizes your files as if you were ready to publish (both can be seen at [localhost:8000](http://localhost:8000/))
-- `grunt build` will build production-ready files without publishing to GitHub Pages or updating the `gh-pages` branch
-- `grunt shipit` will update your `gh-pages` branch with production-ready files and publish to GitHub Pages
-- *Optional*: Install the [LiveReload extension for Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) so your browser automatically refreshes whenever you make changes in development mode
-
-## Example
-
-You’re looking at it. The `master` branch of this repo contains the development files, while the `gh-pages` branch contains only the files needed for the [CEKTOP website](http://eswat.ca/cektop).
-
-The process of getting your work on GitHub Pages is pretty much…
-
-1. Download or clone CEKTOP and install dependencies
-2. Hack, hack, hack
-3. `grunt shipit`
-
-## Structure
-
-All your development work is done in the `src` directory. The files in `src` will be compiled and copied to the `release` directory as you work. The `release` directory is also used when publishing to GitHub Pages (see [grunt-gh-pages](https://github.com/tschaub/grunt-gh-pages) for details on the process). This directory will be cleaned up whenever you run a Grunt task and populated with the files necessary for that environment. So during development these files will be more verbose to help with debugging, but will be optimized when using any of the Grunt tasks that produces production-ready files.
+You are Raiden, the appointed protector of Earthrealm. As a deity of the Elder Gods you also have Krypt and must use it to commit the appropriate changes to `earthrealm` in the `mk.krypt` repository and delay Shao Kahn’s plan until the Elder Gods take notice and revoke Shao Kahn’s priveleges.
 
 ```
-├─ src/
-│ ├─ assets/
-│ ├─ script/
-│ └─ stylus/
-├─ release/
-│ └─ assets/
-│ ├─ js/
-│ ├─ css/
-├─ Gruntfile.coffee
-├─ Gruntfile.js
-├─ package.json
+usage: krypt <command> [<args>]
+
+commands:
+  add        Add new or modified entities to the staging area
+  rm         Remove entities from the working dimension and staging area
+  reset      Reset changes made to the staging area
+
+  status     Show the status of the working dimension and staging area
+  commit     Record changes to the repository
+  log        Show the commit history log
+
+  realm      List, create, or delete realms
+  checkout   Switch the active realm to another realm
+  merge      Join two realms together
+
+  clone      Clone a remote repository into working dimension
+  pull       Receive changes from a remote repository
+  push       Send changes to a remote repository
 ```
-
-Most of the magic is done in `Gruntfile.coffee`, so take a look at that if you want to make modifications. Your Jade files also have visibility to some of the information stored in `package.json`, which you should modify to suit your project (you can see what is exposed in `Gruntfile.coffee` under the Jade task). `Gruntfile.js` is just a middleman to enable parsing our Gruntfile with CoffeeScript.
-
-## License
-
-CEKTOP is released under the [MIT License](LICENSE).
-
-When creating deriative works that include writing, or anything you’re cautious about being modified freely, you should consider replacing this license with one from [Creative Commons](http://creativecommons.org/choose/) instead.
