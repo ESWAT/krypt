@@ -3,7 +3,7 @@ window.krypt = {}
 window.krypt =
   status: ->
     return """
-    ## #{state.activeRealm}...origin/#{state.originRealm}
+    ## \033[33m#{state.activeRealm}\033[37m...\033[31morigin/#{state.originRealm}\033[39m
     """
 
   clone: (url) ->
