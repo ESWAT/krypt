@@ -1,7 +1,7 @@
 {
-  "name": "CEKTOP",
+  "name": "Krypt",
   "version": "0.1.4",
-  "description": "A static site generator for GitHub Pages, powered by Grunt & Node.js.",
+  "description": "Krypt is a distributed realm control system designed to handle everything from small to very large conquests with speed and efficency.",
   "main": "Gruntfile.js",
   "private": true,
   "scripts": {
@@ -34,12 +34,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ESWAT/cektop.git"
+    "url": "git://github.com/ESWAT/krypt.git"
   },
   "author": "Philip Karpiak <operations@eswat.ca> (http://eswat.ca/)",
-  "license": "MIT",
+  "license": "WTF",
   "bugs": {
-    "url": "https://github.com/ESWAT/cektop/issues"
+    "url": "https://github.com/ESWAT/krypt/issues"
   },
-  "homepage": "http://eswat.ca/cektop"
+  "homepage": "http://eswat.ca/krypt"
 }
