@@ -1,52 +1,52 @@
-html
-  height: 100%
-
-body
-  margin: 0
-  height: 100%
-  font: 300 62.5%/1.5 baskerville, times
-  text-align: center
-  background: black
-  color: white
-
-.container
-  margin: 0 auto
-
-@media (max-width: 768px)
-  .container
-    padding: 1rem
-  h1
-    font-size: 3.2rem
-  p,a
-    font-size: 1.4rem
-  a
-    padding: 0.25rem 1rem
-
-@media (min-width: 769px)
-  .container
-    width: 32rem
-    position: relative
-    top: 50%
-    -webkit-transform: translateY(-50%)
-    transform: translateY(-50%)
-  h1
-    font-size: 4.8rem
-  p,a
-    font-size: 1.6rem
-  a
-    padding: 0.5rem 2rem
-
-h1
-  margin: 0
-  font-weight: 300
-
-p
-  margin: 0.5rem 0 2.5rem
-
-a
-  display: inline-block
-  margin: 0 0.5rem 1rem
-  color: black
-  text-decoration: none
-  color: white
-  border: 0.2rem solid white
+html, body {
+  background-color: #333;
+  color: white;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+}
+#console {
+  height: 400px;
+  width: 750px;
+  position:relative;
+  background-color: black;
+  border: 2px solid #CCC;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.jqconsole {
+  padding: 10px;
+  padding-bottom: 10px;
+}
+.jqconsole-cursor {
+  background-color: #999;
+}
+.jqconsole-blurred .jqconsole-cursor {
+  background-color: #666;
+}
+.jqconsole-prompt {
+  color: #0d0;
+}
+.jqconsole-old-prompt {
+  color: #0b0;
+  font-weight: normal;
+}
+.jqconsole-input {
+  color: #dd0;
+}
+.jqconsole-old-input {
+  color: #bb0;
+  font-weight: normal;
+}
+.brace {
+  color: #00FFFF;
+}
+.paran {
+  color: #FF00FF;
+}
+.bracket {
+  color: #FFFF00;
+}
+.jqconsole-composition {
+  background-color: red;
+}
