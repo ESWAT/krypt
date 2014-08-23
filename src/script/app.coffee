@@ -25,8 +25,8 @@ text =
   welcome: """
    _                 _
   | |___ _ _  _ _ __| |__
-  | / / '_| || | '_ \\  _|    The distributed realm control
-  |_\\_\\_|  \\_, | .__/\\__|    system for the Elder Gods!
+  | / / '_| || | '_ \\  _|    The distributed realm control system.
+  |_\\_\\_|  \\_, | .__/\\__|    By the Elder Gods, for the Elder Gods.
            |__/|_|
   """
   help: """
