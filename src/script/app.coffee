@@ -1,11 +1,11 @@
-$ ->
-  text =
-    welcome: "Welcome to Krypt!"
-    help: """
+text =
+  welcome: "Welcome to Krypt!"
+  help: """
 
-usage: krypt <command> [<args>]
+  usage: krypt <command> [<args>]
 
-commands:
+  commands:
+
   add        Add new or modified entities to the staging area
   rm         Remove entities from the working dimension and staging area
   reset      Reset changes made to the staging area
@@ -21,59 +21,57 @@ commands:
   clone      Clone a remote repository into working dimension
   pull       Receive changes from a remote repository
   push       Send changes to a remote repository
-    """
-    prompt: "raiden@tgod:~$"
+  """
+  prompt: "raiden@tgod:~$"
 
-  # Print welcome message
-  window.jqconsole =
-    $("#console").jqconsole("#{text.welcome}\n #{text.help}\n\n", "#{text.prompt} ")
+# Print welcome message
+window.jqconsole =
+  $("#console").jqconsole("#{text.welcome}\n #{text.help}\n\n", "#{text.prompt} ")
 
-  # Abort prompt on ctrl-z
-  jqconsole.RegisterShortcut "Z", ->
-    jqconsole.AbortPrompt()
-    handler()
-    return
-
-
-  # Move to line start ctrl-a
-  jqconsole.RegisterShortcut "A", ->
-    jqconsole.MoveToStart()
-    handler()
-    return
-
-
-  # Move to line end ctrl-e
-  jqconsole.RegisterShortcut "E", ->
-    jqconsole.MoveToEnd()
-    handler()
-    return
-
-  jqconsole.RegisterMatching "{", "}", "brace"
-  jqconsole.RegisterMatching "(", ")", "paran"
-  jqconsole.RegisterMatching "[", "]", "bracket"
-
-  # Handle a command.
-  handler = (command) ->
-    if command
-      try
-        jqconsole.Write "==> " + window.eval(command) + "\n"
-      catch e
-        jqconsole.Write "ERROR: " + e.message + "\n"
-    jqconsole.Prompt true, handler, (command) ->
-
-      # Continue line if can't compile the command.
-      try
-        Function command
-      catch e
-        if /[\[\{\(]$/.test(command)
-          return 1
-        else
-          return 0
-      false
-
-    return
-
-
-  # Initiate the first prompt.
+# Abort prompt on ctrl-z
+jqconsole.RegisterShortcut "Z", ->
+  jqconsole.AbortPrompt()
   handler()
   return
+
+# Move to line start ctrl-a
+jqconsole.RegisterShortcut "A", ->
+  jqconsole.MoveToStart()
+  handler()
+  return
+
+# Move to line end ctrl-e
+jqconsole.RegisterShortcut "E", ->
+  jqconsole.MoveToEnd()
+  handler()
+  return
+
+jqconsole.RegisterMatching "{", "}", "brace"
+jqconsole.RegisterMatching "(", ")", "paran"
+jqconsole.RegisterMatching "[", "]", "bracket"
+
+# Handle a command.
+handler = (command) ->
+  if command
+    try
+      jqconsole.Write "==> " + window.eval(command) + "\n"
+    catch e
+      jqconsole.Write "ERROR: " + e.message + "\n"
+  jqconsole.Prompt true, handler, (command) ->
+
+    # Continue line if can't compile the command.
+    try
+      Function command
+    catch e
+      if /[\[\{\(]$/.test(command)
+        return 1
+      else
+        return 0
+    false
+
+  return
+
+
+# Initiate the first prompt.
+handler()
+return
