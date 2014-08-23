@@ -6,6 +6,17 @@ window.krypt =
     ## #{state.activeRealm}...origin/#{state.originRealm}
     """
 
+  clone: (url) ->
+    if url is "krypt@kamidogu:mk.krypt"
+      return """
+      Cloning into 'mk'...
+      remote: Counting objects: 997, done.
+      remote: Total 997 (delta 0), reused 0 (delta 0)
+      Receiving objects: 100% (997/997), 527.22 KiB | 709.00 KiB/s, done.
+      Resolving deltas: 100% (497/497), done.
+      Checking connectivity... done.
+      """
+
 state =
   activeRealm: "earthrealm"
   originRealm: "outworld"
@@ -15,7 +26,7 @@ text =
   help: """
 
   usage:     krypt.<command>(<args>)
-  examples:  krypt.status(), krypt.add(liu-kang.war)
+  examples:  krypt.status(), krypt.add("liu-kang.war")
 
   commands:
 
