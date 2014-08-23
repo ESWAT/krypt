@@ -1,8 +1,21 @@
+window.krypt = {}
+
+window.krypt =
+  status: ->
+    return """
+    ## #{state.activeRealm}...origin/#{state.originRealm}
+    """
+
+state =
+  activeRealm: "earthrealm"
+  originRealm: "outworld"
+
 text =
   welcome: "Welcome to Krypt!"
   help: """
 
-  usage: krypt <command> [<args>]
+  usage:     krypt.<command>(<args>)
+  example:   krypt.add(liu-kang.warrior)
 
   commands:
 
@@ -54,7 +67,7 @@ jqconsole.RegisterMatching "[", "]", "bracket"
 handler = (command) ->
   if command
     try
-      jqconsole.Write "==> " + window.eval(command) + "\n"
+      jqconsole.Write window.eval(command) + "\n"
     catch e
       jqconsole.Write "ERROR: " + e.message + "\n"
   jqconsole.Prompt true, handler, (command) ->
