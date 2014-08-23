@@ -22,7 +22,13 @@ state =
   originRealm: "outworld"
 
 text =
-  welcome: "Welcome to Krypt!"
+  welcome: """
+   _                 _
+  | |___ _ _  _ _ __| |__
+  | / / '_| || | '_ \\  _|    The distributed realm control
+  |_\\_\\_|  \\_, | .__/\\__|    system for the Elder Gods!
+           |__/|_|
+  """
   help: """
 
   usage:     krypt.<command>(<args>)
