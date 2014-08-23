@@ -1,25 +1,48 @@
 $ ->
+  text =
+    welcome: "Welcome to Krypt!"
+    help: """
 
-  # Creating the console.
-  header = "Welcome to JQConsole!\n" + "Use jqconsole.Write() to write and " \
-    + "jqconsole.Input() to read.\n"
-  window.jqconsole = $("#console").jqconsole(header, "JS> ")
+usage: krypt <command> [<args>]
 
-  # Abort prompt on Ctrl+Z.
+commands:
+  add        Add new or modified entities to the staging area
+  rm         Remove entities from the working dimension and staging area
+  reset      Reset changes made to the staging area
+
+  status     Show the status of the working dimension and staging area
+  commit     Record changes to the repository
+  log        Show the commit history log
+
+  realm      List, create, or delete realms
+  checkout   Switch the active realm to another realm
+  merge      Join two realms together
+
+  clone      Clone a remote repository into working dimension
+  pull       Receive changes from a remote repository
+  push       Send changes to a remote repository
+    """
+    prompt: "raiden@tgod:~$"
+
+  # Print welcome message
+  window.jqconsole =
+    $("#console").jqconsole("#{text.welcome}\n #{text.help}\n\n", "#{text.prompt} ")
+
+  # Abort prompt on ctrl-z
   jqconsole.RegisterShortcut "Z", ->
     jqconsole.AbortPrompt()
     handler()
     return
 
 
-  # Move to line start Ctrl+A.
+  # Move to line start ctrl-a
   jqconsole.RegisterShortcut "A", ->
     jqconsole.MoveToStart()
     handler()
     return
 
 
-  # Move to line end Ctrl+E.
+  # Move to line end ctrl-e
   jqconsole.RegisterShortcut "E", ->
     jqconsole.MoveToEnd()
     handler()
