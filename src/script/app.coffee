@@ -15,7 +15,7 @@ text =
   help: """
 
   usage:     krypt.<command>(<args>)
-  example:   krypt.add(liu-kang.warrior)
+  examples:  krypt.status(), krypt.add(liu-kang.war)
 
   commands:
 
